@@ -1,0 +1,99 @@
+
+  
+  /* Cấu trúc tổng thể của trang */
+
+
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Các nhóm form */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Đảm bảo các phần tử không bị tràn */
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px; /* Điều chỉnh kích thước nút */
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Nút có chiều rộng đầy đủ */
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:active {
+    background-color: #388e3c;
+  }
+  
+  /* Kiểu cho các nút thông báo */
+  .custom-btn {
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .primary-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+  }
+  
+  .primary-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .primary-btn:active {
+    background-color: #004085;
+  }
+  
+  .btn-announce {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .btn-announce:hover {
+    background-color: #218838;
+  }
+  
+  .btn-announce:active {
+    background-color: #1e7e34;
+  }
+  

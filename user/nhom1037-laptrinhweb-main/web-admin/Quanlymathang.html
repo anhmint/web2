@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sản Phẩm</title>
+    <link rel="stylesheet" href="Quanlymathang.css">
+    <link rel="stylesheet" href="checkbox.css">
+</head>
+
+<input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+<!-- Danh mục quản lý ẩn/hiện dựa trên checkbox -->
+<ul class="menu">
+    <li><a href="Quanlynguoidung.html">Quản lý Người dùng</a></li>
+    <li><a href="order_management-renew.html">Quản lý Đơn hàng</a></li>
+    <li><a href="business_statistic-renew.html">Thống kê Kinh doanh</a></li>
+    <li><a href="Quanlymathang.html">Quản lý sản phẩm</a></li>
+</ul>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Quản Lý Sản Phẩm</h1>
+        </header>
+
+        <!-- Thêm sản phẩm -->
+        <section id="add-product">
+            <h2>Thêm Sản Phẩm</h2>
+            <form>
+                <label for="product-name">Tên sản phẩm:</label>
+                <input type="text" id="product-name" name="product-name" required>
+
+                <label for="product-image">Chọn hình ảnh:</label>
+                <input type="file" id="product-image" name="product-image" accept="image/*" required>
+
+                <label for="product-description">Mô tả sản phẩm:</label>
+                <textarea id="product-description" name="product-description" rows="4" required></textarea>
+
+                <button type="submit">Thêm sản phẩm</button>
+            </form>
+        </section>
+
+        <!-- Sửa sản phẩm -->
+        <section id="edit-product">
+            <h2>Sửa Sản Phẩm</h2>
+            <form>
+                <label for="edit-name">Tên sản phẩm:</label>
+                <input type="text" id="edit-name" name="edit-name" value="Tên sản phẩm trước đó" required>
+
+                <label for="edit-image">Thay đổi hình ảnh:</label>
+                <input type="file" id="edit-image" name="edit-image" accept="image/*">
+
+                <label for="edit-description">Mô tả sản phẩm:</label>
+                <textarea id="edit-description" name="edit-description" rows="4" required>Mô tả sản phẩm trước đó</textarea>
+
+                <button type="submit">Lưu thay đổi</button>
+                <button type="reset">Bỏ thay đổi</button>
+            </form>
+        </section>
+
+        <!-- Xóa sản phẩm -->
+        <section id="delete-product">
+            <h2>Xóa Sản Phẩm</h2>
+            <form>
+                <label for="edit-name">Tên sản phẩm:</label>
+                <input type="text" id="edit-name" name="edit-name" value="Tên sản phẩm trước đó" required>
+
+                <label for="edit-description">Mô tả sản phẩm:</label>
+                <textarea id="edit-description" name="edit-description" rows="4" required>Mô tả sản phẩm trước đó</textarea>
+
+                <label for="delete-confirm">Bạn có chắc chắn muốn xóa sản phẩm này không?</label>
+                <input type="checkbox" id="delete-confirm" name="delete-confirm" required> Tôi đồng ý xóa sản phẩm
+
+                <button type="submit">Xóa sản phẩm</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

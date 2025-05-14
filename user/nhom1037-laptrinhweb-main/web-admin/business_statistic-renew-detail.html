@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thống Kê Bán Hàng</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      .product-carousel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+        max-width: 800px;
+        margin-bottom: 20px;
+      }
+
+      .img3 {
+        width: 150px;
+        border-radius: 8px;
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .label {
+        font-size: 20px;
+        color: #555;
+        margin: 5px 0;
+      }
+
+      .input-field {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      .input-field input,
+      .input-field select {
+        width: 100%;
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .soluong input {
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Chi Tiết Đơn Hàng</h1>
+
+    <div class="input-field">
+      <label class="label">Tên Khách Hàng:</label>
+      <input
+        type="text"
+        placeholder="Nhập tên khách hàng"
+        value="Nguyễn Văn A"
+      />
+    </div>
+
+    <section class="product-carousel">
+      <!-- Sản phẩm 1 -->
+      <div class="row">
+        <img
+          class="img3"
+          src="https://www.futbolemotion.com/imagesarticulos/218507/750/camiseta-nike-fc-barcelona-primera-equipacion-authentic-2024-2025-azul-electrico-0.webp"
+          alt="Áo đấu FCBarcelona 24/25 sân nhà"
+        />
+        <div class="info">
+          <div class="detail">Tên Sản Phẩm: Áo đấu Barcelona 24/25 Sân Nhà</div>
+          <div class="label">Giá Tiền: 500.000 VND</div>
+          <div class="label">Thời Gian Đặt Hàng:</div>
+          <div class="input-field">
+            <input type="date" value="2024-10-25" />
+          </div>
+          <div class="label">Kích Cỡ:</div>
+          <div class="input-field">
+            <select>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+            </select>
+          </div>
+          <div class="label">Số Lượng:</div>
+          <div class="soluong">
+            <input type="number" placeholder="1" min="1" value="56" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Sản phẩm 2 -->
+      <div class="row">
+        <img
+          class="img3"
+          src="https://www.futbolemotion.com/imagesarticulos/243754/750/camiseta-nike-inter-milan-segunda-equipacion-2024-2025-white-0.webp"
+          alt="Áo đấu Intermilan 24/25 sân khách"
+        />
+        <div class="info">
+          <div class="detail">
+            Tên Sản Phẩm: Áo đấu Intermilan 24/25 Sân Khách
+          </div>
+          <div class="label">Giá Tiền: 500.000 VND</div>
+          <div class="label">Thời Gian Đặt Hàng:</div>
+          <div class="input-field">
+            <input type="date" value="2024-10-25" />
+          </div>
+          <div class="label">Kích Cỡ:</div>
+          <div class="input-field">
+            <select>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+            </select>
+          </div>
+          <div class="label">Số Lượng:</div>
+          <div class="soluong">
+            <input type="number" placeholder="1" min="1" value="34" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

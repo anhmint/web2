@@ -1,0 +1,77 @@
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.login-container {
+    padding: 40px;
+    text-align: center;
+    width: 300px; 
+    margin: auto; 
+    flex-grow: 1;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.divider {
+    margin: 20px 0;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: #ccc;
+    margin-bottom: 10px;
+}
+
+.divider span {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 0 10px;
+}
+
+.register-link {
+    margin-top: 15px;
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+

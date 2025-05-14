@@ -1,0 +1,11 @@
+    /* CSS cho hiệu ứng trượt mượt */
+    #open-srch-form-mod {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+    }
+
+    /* Khi mở thanh tìm kiếm */
+    #open-srch-form-mod.active {
+        max-height: 100px; /* Đặt một giá trị đủ lớn để chứa nội dung */
+    }

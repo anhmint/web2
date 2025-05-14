@@ -1,0 +1,16 @@
+html,body{
+    width:100%;
+    margin:0;
+    padding:0;
+    height:auto;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color:#2b2a2f;
+}
+a{
+    color:#66cef6;
+    text-decoration:none;
+    transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+}

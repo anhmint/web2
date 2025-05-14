@@ -1,0 +1,161 @@
+/* Tổng thể */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ebf5f4fd;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container chính */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: linear-gradient(135deg, #cff076 20%, #e6bb8b 70%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+header h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: rgb(236, 144, 133);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+}
+
+/* Các phần riêng biệt */
+section {
+    margin-bottom: 50px;
+}
+
+/* Các tiêu đề phần */
+h2 {
+    text-align: center;
+    color: #7ccac0;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background-color: #e74c3c;
+    display: block;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Form */
+form {
+    background-color: #f2eef3;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+form:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Định dạng input, textarea */
+input[type="text"],
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1.1em;
+    background-color: #f4f6f8;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus,
+textarea:focus {
+    border-color: #3498db;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+/* Định dạng cho button */
+button {
+    display: inline-block;
+    padding: 15px 40px;
+    margin-top: 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    box-shadow: 0 5px 15px rgba(41, 128, 185, 0.5);
+}
+
+/* Định dạng nút reset */
+button[type="reset"] {
+    background-color: #e74c3c;
+    margin-left: 10px;
+}
+
+button[type="reset"]:hover {
+    background-color: #c0392b;
+}
+
+/* Checkbox cho phần xóa */
+input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+/* Phần xóa sản phẩm với hiệu ứng cảnh báo */
+#delete-product {
+    background-color: #ffe6e6;
+    border: 1px solid #e74c3c;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+#delete-product button {
+    background-color: #e74c3c;
+}
+
+#delete-product button:hover {
+    background-color: #c0392b;
+}
+
+/* Định dạng ảnh */
+#edit-product img {
+    display: block;
+    max-width: 250px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}

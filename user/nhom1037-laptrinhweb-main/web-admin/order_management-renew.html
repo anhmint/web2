@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Đơn Hàng</title>
+    <link rel="stylesheet" href="order_management.css">
+    <link rel="stylesheet" href="checkbox.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Quản Lý Đơn Hàng</h1>
+
+    <!-- Bộ lọc đơn hàng -->
+    <div class="filter-section">
+        <form action="/filter-orders" method="GET">
+            <label for="start-date">Từ ngày:</label>
+            <input type="date" id="start-date" name="start-date">
+            
+            <label for="end-date">Đến ngày:</label>
+            <input type="date" id="end-date" name="end-date">
+
+            <label for="status">Tình trạng:</label>
+            <select id="status" name="status">
+                <option value="all">Tất cả</option>
+                <option value="new">Chưa xử lý</option>
+                <option value="confirmed">Đã xác nhận</option>
+                <option value="delivered">Đã giao</option>
+                <option value="canceled">Đã huỷ</option>
+            </select>
+
+            <label for="district">Quận:</label>
+            <select id="district" name="district">
+                <option value="all">Tất cả</option>
+                <option value="1">Quận 1</option>
+                <option value="2">Quận 2</option>
+                <option value="3">Quận 3</option>
+                <!-- Thêm các quận khác -->
+            </select>
+
+            <input type="submit" value="Lọc đơn hàng">
+        </form>
+    </div>
+
+    <!-- Bảng đơn hàng -->
+    <table>
+        <thead>
+            <tr>
+                <th>Mã đơn hàng</th>
+                <th>Ngày đặt</th>
+                <th>Khách hàng</th>
+                <th>Địa chỉ</th>
+                <th>Tình trạng</th>
+                <th>Chi tiết</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>#1001</td>
+                <td>2024-10-10</td>
+                <td>Nguyễn Văn A</td>
+                <td>Quận 1, TP.HCM</td>
+                <td><span class="status new">Chưa xử lý</span></td>
+                <td><a href="/order-details/1001">Xem chi tiết</a></td>
+            </tr>
+            <tr>
+                <td>#1002</td>
+                <td>2024-10-11</td>
+                <td>Trần Thị B</td>
+                <td>Quận 3, TP.HCM</td>
+                <td><span class="status confirmed">Đã xác nhận</span></td>
+                <td><a href="/order-details/1002">Xem chi tiết</a></td>
+            </tr>
+            <tr>
+                <td>#1003</td>
+                <td>2024-10-12</td>
+                <td>Phạm Văn C</td>
+                <td>Quận 2, TP.HCM</td>
+                <td><span class="status delivered">Đã giao</span></td>
+                <td><a href="/order-details/1003">Xem chi tiết</a></td>
+            </tr>
+            <tr>
+                <td>#1004</td>
+                <td>2024-10-13</td>
+                <td>Lê Thị D</td>
+                <td>Quận 1, TP.HCM</td>
+                <td><span class="status canceled">Đã huỷ</span></td>
+                <td><a href="/order-details/1004">Xem chi tiết</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
