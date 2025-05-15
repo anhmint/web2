@@ -223,7 +223,7 @@ $total_price = 0;
         <table>
             <tr>
                 <th>Tên sản phẩm</th>
-                <th>Ảnh</th>
+
                 <th>Số lượng</th>
                 <th>Đơn giá</th>
                 <th>Tổng</th>
@@ -233,7 +233,7 @@ $total_price = 0;
             <?php foreach ($_SESSION['cart'] as $item): ?>
                 <tr>
                     <td><?= htmlspecialchars($item['name']) ?></td>
-                    <td><img src="images/<?= htmlspecialchars($item['image']) ?>" width="100"></td>
+
                     <td>
   <form method="post" action="update_cart.php" style="display: flex; gap: 5px;">
     <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
@@ -241,8 +241,8 @@ $total_price = 0;
     <button type="submit">✔</button>
   </form>
 </td>
-                    <td><?= number_format($item['price'], 2) ?> USD</td>
-                    <td><?= number_format($item['quantity'] * $item['price'], 2) ?> USD</td>
+                    <td><?= number_format($item['price'], 2) ?> VND</td>
+                    <td><?= number_format($item['quantity'] * $item['price'], 2) ?> VND</td>
                 </tr>
                 <td>
   <form method="post" action="remove_from_cart.php" onsubmit="return confirm('Bạn có chắc muốn xóa sản phẩm này?');">
@@ -255,7 +255,7 @@ $total_price = 0;
             <?php endforeach; ?>
         </table>
 
-        <p class="total">Tổng cộng: <?= number_format($total_price, 2) ?> USD</p>
+        <p class="total">Tổng cộng: <?= number_format($total_price, 2) ?> VND</p>
         <button><p><a href="index.php">← Tiếp tục mua hàng</a></p></button>
         <div style="text-align: right;">
   <button onclick="window.location.href='checkout.php'">Thanh toán</button>

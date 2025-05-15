@@ -222,14 +222,12 @@ window.onclick = function(event) {
                         <table>
                             <tr>
                                 <th>Sản phẩm</th>
-                                <th>Ảnh</th>
                                 <th>Số lượng</th>
                                 <th>Giá</th>
                             </tr>
                             <?php while ($item = $result_items->fetch_assoc()): ?>
                                 <tr>
                                     <td><?= isset($item['name']) ? htmlspecialchars($item['name']) : 'N/A' ?></td>
-                                    <td><img src="images/<?= isset($item['image']) ? htmlspecialchars($item['image']) : 'default.jpg' ?>" width="60"></td>
                                     <td><?= isset($item['quantity']) ? $item['quantity'] : '0' ?></td>
                                     <td><?= isset($item['price']) ? number_format($item['price'], 2) : '0.00' ?> USD</td>
                                 </tr>

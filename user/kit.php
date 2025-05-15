@@ -1,15 +1,54 @@
 <?php
-// Kết nối CSDL
-$conn = new mysqli("localhost", "root", "", "fclothes"); // sửa lại tên database nếu khác
-
-// Kiểm tra kết nối
+// Bắt đầu session và kết nối CSDL như bạn đang có
+session_start();
+$conn = new mysqli("localhost", "root", "", "fclothes");
 if ($conn->connect_error) {
     die("Kết nối thất bại: " . $conn->connect_error);
 }
+$keyword = isset($_GET['keyword']) ? trim($_GET['keyword']) : '';
 
-// Lấy sản phẩm thuộc danh mục "Áo thi đấu"
-$sql = "SELECT * FROM products WHERE category = 'Áo thi đấu'";
-$result = $conn->query($sql);
+
+// Lấy sản phẩm theo danh mục
+$category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : null;
+
+if ($category_id !== null && $category_id > 0) {
+    $stmt = $conn->prepare("SELECT * FROM products WHERE category_id = ?");
+    $stmt->bind_param("i", $category_id);
+} else {
+    // Không có category_id hợp lệ, tạo truy vấn trả về kết quả rỗng
+    $stmt = $conn->prepare("SELECT * FROM products WHERE 1=0"); // Luôn luôn không có kết quả
+}
+
+// Số sản phẩm mỗi trang
+$limit = 4;
+$page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+$offset = ($page - 1) * $limit;
+
+// Tính tổng số sản phẩm theo danh mục (nếu có)
+if ($category_id !== null && $category_id > 0) {
+    $count_stmt = $conn->prepare("SELECT COUNT(*) as total FROM products WHERE category_id = ?");
+    $count_stmt->bind_param("i", $category_id);
+    $count_stmt->execute();
+    $count_result = $count_stmt->get_result();
+    $total = $count_result->fetch_assoc()['total'];
+    
+    $stmt = $conn->prepare("SELECT * FROM products WHERE category_id = ? LIMIT ? OFFSET ?");
+    $stmt->bind_param("iii", $category_id, $limit, $offset);
+} else {
+    $count_result = $conn->query("SELECT COUNT(*) as total FROM products");
+    $total = $count_result->fetch_assoc()['total'];
+
+    $stmt = $conn->prepare("SELECT * FROM products LIMIT ? OFFSET ?");
+    $stmt->bind_param("ii", $limit, $offset);
+}
+
+$totalPages = ceil($total / $limit);
+$stmt->execute();
+$result = $stmt->get_result();
+$stmt->execute();
+$result = $stmt->get_result();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,9 +88,6 @@ $result = $conn->query($sql);
                           </div>
                       </div>
 
-                      <?php
-session_start();
-?>
 
 <div class="top-control">
   <ul>
@@ -125,10 +161,11 @@ window.onclick = function(event) {
     Sản phẩm <i class="fa fa-angle-down"></i>
   </a>
   <ul class="dropdown-menu">
-    <li><a href="kit.php">Áo thi đấu</a></li>
-    <li><a href="shoes.php">Giày thể thao</a></li>
-    <li><a href="other_products.php">Phụ kiện khác</a></li>
-  </ul>
+  <li><a href="kit.php?category_id=3">Áo thi đấu</a></li>
+<li><a href="kit.php?category_id=1">Giày thể thao</a></li>
+<li><a href="kit.php?category_id=4">Phụ kiện khác</a></li>
+
+</ul>
 </li>
 
 
@@ -173,27 +210,32 @@ window.onclick = function(event) {
                           <div class="newest-tab">
                               <ul id="myTab" class="nav nav-tabs newest" role="tablist">
                                   <li role="presentation" class="active">
-                                      <a href="#1" id="cat-1" role="tab" data-toggle="tab" aria-controls="1" aria-expanded="true">Áo thi đấu</a>
+                                      <a href="#1" id="cat-1" role="tab" data-toggle="tab" aria-controls="1" aria-expanded="true"></a>
                                   </li>
                               </ul>
-                              <form method="GET" action="search.php" class="form-inline" style="margin: 30px 0; text-align: center;">
-  <div style="margin-bottom: 10px;">
-    <input type="text" name="keyword" class="form-control" placeholder="Nhập tên sản phẩm" style="width: 250px;">
-    
-    <select name="category" class="form-control" style="width: 200px;">
-      <option value="">-- Chọn danh mục --</option>
-      <option value="Áo thi đấu">Áo thi đấu</option>
-      <option value="Giày thể thao">Giày thể thao</option>
-      <option value="Phụ kiện thể thao">Phụ kiện thể thao</option>
-    </select>
-  </div>
+                           
+<form method="GET" action="search.php">
+    <div class="search-container">
+        <input type="text" name="keyword" placeholder="Tìm theo tên sản phẩm..." value="<?= htmlspecialchars($keyword) ?>">
 
-  <div style="margin-bottom: 10px;">
-    <input type="number" name="min_price" class="form-control" placeholder="Giá từ" min="0" style="width: 120px;">
-    <input type="number" name="max_price" class="form-control" placeholder="đến" min="0" style="width: 120px;">
-    
-    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-  </div>
+       <select name="category">
+    <option value="">-- Chọn phân loại (tùy chọn) --</option>
+    <?php
+    $categoryResult = $conn->query("SELECT * FROM categories");
+    while ($cat = $categoryResult->fetch_assoc()) {
+        $selected = ($category == $cat['id']) ? 'selected' : '';
+        echo "<option value='{$cat['id']}' $selected>{$cat['name']}</option>";
+    }
+    ?>
+</select>
+
+
+        <input type="number" name="min_price" placeholder="Giá từ (VND)" min="0" value="<?= htmlspecialchars($min_price) ?>">
+        <input type="number" name="max_price" placeholder="Giá đến (VND)" min="0"
+       value="<?= htmlspecialchars($raw_max_price) ?>">
+
+        <button type="submit">Tìm kiếm</button>
+    </div>
 </form>
                               <?php
 if ($result->num_rows > 0) {
@@ -236,7 +278,23 @@ if ($result->num_rows > 0) {
                               </div>
                               
                           </div>
-                      
+                      <nav class="text-center">
+    <ul class="pagination">
+        <?php if ($page > 1): ?>
+            <li><a href="?category_id=<?= $category_id ?>&page=<?= $page - 1 ?>">&laquo; Trước</a></li>
+        <?php endif; ?>
+
+        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <li class="<?= ($i == $page) ? 'active' : '' ?>">
+                <a href="?category_id=<?= $category_id ?>&page=<?= $i ?>"><?= $i ?></a>
+            </li>
+        <?php endfor; ?>
+
+        <?php if ($page < $totalPages): ?>
+            <li><a href="?category_id=<?= $category_id ?>&page=<?= $page + 1 ?>">Tiếp &raquo;</a></li>
+        <?php endif; ?>
+    </ul>
+</nav>
              
               <script>
                 // Kiểm tra xem người dùng đã đăng nhập hay chưa

@@ -27,7 +27,8 @@ if (!empty($keyword)) {
 
 if (!empty($category)) {
     $categoryEscaped = $conn->real_escape_string($category);
-    $where .= " AND category = '$categoryEscaped'";
+$where .= " AND category_id = " . intval($category);
+
 }
 
 if ($max_price !== null) {
@@ -294,12 +295,17 @@ window.onclick = function(event) {
     <div class="search-container">
         <input type="text" name="keyword" placeholder="Tìm theo tên sản phẩm..." value="<?= htmlspecialchars($keyword) ?>">
 
-        <select name="category">
-            <option value="">-- Chọn phân loại (tùy chọn) --</option>
-            <option value="Áo thi đấu" <?= $category == "Áo thi đấu" ? 'selected' : '' ?>>Áo thi đấu</option>
-            <option value="Phụ kiện thể thao" <?= $category == "Phụ kiện thể thao" ? 'selected' : '' ?>>Phụ kiện thể thao</option>
-            <option value="Giày thể thao" <?= $category == "Giày thể thao" ? 'selected' : '' ?>>Giày thể thao</option>
-        </select>
+       <select name="category">
+    <option value="">-- Chọn phân loại (tùy chọn) --</option>
+    <?php
+    $categoryResult = $conn->query("SELECT * FROM categories");
+    while ($cat = $categoryResult->fetch_assoc()) {
+        $selected = ($category == $cat['id']) ? 'selected' : '';
+        echo "<option value='{$cat['id']}' $selected>{$cat['name']}</option>";
+    }
+    ?>
+</select>
+
 
         <input type="number" name="min_price" placeholder="Giá từ (VND)" min="0" value="<?= htmlspecialchars($min_price) ?>">
         <input type="number" name="max_price" placeholder="Giá đến (VND)" min="0"

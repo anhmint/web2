@@ -21,7 +21,7 @@ $user_id = $_SESSION['user_id'];
 $payment_method = "COD";
 $shipping_address = "Địa chỉ mặc định";
 $note = "";
-$order_date = date("Y-m-d");
+$order_date = date("Y-m-d H:i:s");
 $delivery_date = date("Y-m-d", strtotime("+3 days"));
 $order_status = "Đang xử lý";
 

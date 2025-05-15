@@ -1,3 +1,29 @@
+<?php
+// Bắt đầu session và kết nối CSDL như bạn đang có
+session_start();
+$conn = new mysqli("localhost", "root", "", "fclothes");
+if ($conn->connect_error) {
+    die("Kết nối thất bại: " . $conn->connect_error);
+}
+$keyword = isset($_GET['keyword']) ? trim($_GET['keyword']) : '';
+// Lấy danh mục từ URL, mặc định là 'Áo thi đấu'
+$categories = isset($_GET['categories']) ? $_GET['categories'] : 'Áo thi đấu';
+
+// Lấy sản phẩm theo danh mục
+$category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : null;
+
+if ($category_id) {
+    $stmt = $conn->prepare("SELECT * FROM products WHERE category_id = ?");
+    $stmt->bind_param("i", $category_id);
+} else {
+    $stmt = $conn->prepare("SELECT * FROM products");
+}
+
+$stmt->execute();
+$result = $stmt->get_result();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,9 +62,6 @@
                           </div>
                       </div>
 
-                      <?php
-session_start();
-?>
 
 <div class="top-control">
   <ul>
@@ -112,9 +135,9 @@ window.onclick = function(event) {
     Sản phẩm <i class="fa fa-angle-down"></i>
   </a>
   <ul class="dropdown-menu">
-    <li><a href="kit.php">Áo thi đấu</a></li>
-    <li><a href="shoes.php">Giày thể thao</a></li>
-    <li><a href="other_products.php">Phụ kiện khác</a></li>
+  <li><a href="kit.php?category_id=3">Áo thi đấu</a></li>
+<li><a href="kit.php?category_id=1">Giày thể thao</a></li>
+<li><a href="kit.php?category_id=4">Phụ kiện khác</a></li>
   </ul>
 </li>
 
@@ -207,7 +230,7 @@ window.onclick = function(event) {
                                        <div class="cat-desc">
                                            <div class="cat-inner">
                                               <div class="cat-title">Giày<span>Thể thao</span></div>
-                                              <a href="giaythethao.php" class="btn btn-border">Mua ngay</a>
+                                              <a href="kit.php" class="btn btn-border">Mua ngay</a>
                                           </div>
                                       </div>
                                   </div>
@@ -218,7 +241,7 @@ window.onclick = function(event) {
                                        <div class="cat-desc">
                                            <div class="cat-inner">
                                               <div class="cat-title">Phụ kiện<span>khác</span></div>
-                                              <a href="phukienkhac.php" class="btn btn-border">Mua ngay</a>
+                                              <a href="kit.php" class="btn btn-border">Mua ngay</a>
                                            </div>
                                       </div>
                                   </div>
@@ -228,26 +251,29 @@ window.onclick = function(event) {
                   </div>
               </div>
 
-<form method="GET" action="search.php" class="form-inline" style="margin: 30px 0; text-align: center;">
-  <div style="margin-bottom: 10px;">
-    <input type="text" name="keyword" class="form-control" placeholder="Nhập tên sản phẩm" style="width: 250px;">
-    
-    <select name="category" class="form-control" style="width: 200px;">
-      <option value="">-- Chọn danh mục --</option>
-      <option value="Áo thi đấu">Áo thi đấu</option>
-      <option value="Giày thể thao">Giày thể thao</option>
-      <option value="Phụ kiện thể thao">Phụ kiện thể thao</option>
-    </select>
-  </div>
+<form method="GET" action="search.php">
+    <div class="search-container">
+        <input type="text" name="keyword" placeholder="Tìm theo tên sản phẩm..." value="<?= htmlspecialchars($keyword) ?>">
 
-  <div style="margin-bottom: 10px;">
-    <input type="number" name="min_price" class="form-control" placeholder="Giá từ" min="0" style="width: 120px;">
-    <input type="number" name="max_price" class="form-control" placeholder="đến" min="0" style="width: 120px;">
-    
-    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-  </div>
+       <select name="category">
+    <option value="">-- Chọn phân loại (tùy chọn) --</option>
+    <?php
+    $categoryResult = $conn->query("SELECT * FROM categories");
+    while ($cat = $categoryResult->fetch_assoc()) {
+        $selected = ($category == $cat['id']) ? 'selected' : '';
+        echo "<option value='{$cat['id']}' $selected>{$cat['name']}</option>";
+    }
+    ?>
+</select>
+
+
+        <input type="number" name="min_price" placeholder="Giá từ (VND)" min="0" value="<?= htmlspecialchars($min_price) ?>">
+        <input type="number" name="max_price" placeholder="Giá đến (VND)" min="0"
+       value="<?= htmlspecialchars($raw_max_price) ?>">
+
+        <button type="submit">Tìm kiếm</button>
+    </div>
 </form>
-
 
               <!--Sản phẩm-->
               <div class="newest">
