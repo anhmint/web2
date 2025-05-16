@@ -1,0 +1,152 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Header Styles */
+.admin-header {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo img {
+  max-height: 40px;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.logout-btn a {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #222;
+  color: white;
+  width: 250px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidebar-menu {
+  list-style-type: none;
+}
+
+.menu-item {
+  padding: 15px;
+}
+
+.menu-link {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.menu-item.active {
+  background-color: #444;
+}
+
+.menu-item i {
+  margin-right: 10px;
+}
+
+/* Content Styles */
+.admin-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: white;
+}
+
+.content-header h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.user-details {
+  margin-top: 20px;
+}
+
+.user-card {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.user-avatar img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.user-info p {
+  font-size: 16px;
+  color: #555;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.status-badge.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.user-address {
+  margin-top: 20px;
+}
+
+.address-text {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+.form-btns
+{
+grid-column: span 2;
+display: flex;
+justify-content: space-between;
+margin-top: 20px;
+}

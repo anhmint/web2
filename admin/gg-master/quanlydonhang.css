@@ -1,0 +1,75 @@
+/* Main container */
+/* Main container */
+main {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0; /* Loại bỏ khoảng cách */
+    width: 100%; /* Đặt chiều rộng full màn hình */
+    box-shadow: none; /* Loại bỏ shadow nếu không cần */
+  }
+  
+
+/* Header styling */
+h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Highlight text */
+.highlight {
+  color: green;
+  font-weight: bold;
+}
+
+/* Order list styling */
+.order-list h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 5px;
+}
+
+/* Order item */
+.order-item {
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Order details */
+.order-item p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Product list */
+.order-item ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.order-item ul li {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Link styling */
+.details-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.details-link:hover {
+  text-decoration: underline;
+}

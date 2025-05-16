@@ -1,0 +1,131 @@
+.add-product-container {
+  display: flex;
+  align-items: center; /* Canh giữa theo chiều dọc */
+  gap: 15px; /* Khoảng cách giữa nút và form */
+}
+
+.add-product {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-product:hover {
+  background-color: #0056b3;
+}
+
+.search-form {
+  display: flex;
+  align-items: center; /* Canh giữa các phần tử trong form */
+  gap: 10px; /* Khoảng cách giữa input và nút */
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 250px; /* Điều chỉnh chiều rộng của input */
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #218838;
+}
+
+  
+  
+  table td img {
+    display: block;
+    margin: 0 auto;
+    max-height: 60px;
+  }
+  /* Styling for the "Sửa" button */
+/* Styling for the "Sửa" button */
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Khoảng cách giữa 2 nút */
+}
+
+.actions .edit,
+.actions .lock {
+  padding: 6px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Nút Sửa */
+.actions .edit {
+  background-color: #007bff;
+}
+
+.actions .edit:hover {
+  background-color: #0056b3;
+}
+
+/* Nút Khóa */
+.actions .lock {
+  background-color: #dc3545;
+}
+
+.actions .lock:hover {
+  background-color: #a71d2a;
+}
+
+  /* Ensure buttons are inline in the same row */
+  .actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 200px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #007bff; /* Màu xanh dương khi focus */
+}
+
+.search-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

@@ -1,0 +1,149 @@
+/* Tổng thể sản phẩm */
+.product-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Tiêu đề sản phẩm */
+.product-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Hình ảnh sản phẩm */
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Thông tin sản phẩm */
+.product-info p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.product-info .rating {
+    color: gold;
+}
+
+/* Phần giá và số lượng */
+.product-price {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.product-price label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.product-price input {
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+/* Chi tiết kỹ thuật */
+.technical-specs table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.technical-specs td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.technical-specs th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+/* Mô tả sản phẩm */
+.product-description h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-description p {
+    font-size: 16px;
+    color: #555;
+}
+
+.product-container {
+    position: relative;
+}
+
+.edit-button-container {
+    position: absolute;
+    bottom: 10px; /* Căn chỉnh từ đáy khung */
+    left: 10px;  /* Căn chỉnh từ bên phải khung */
+}
+
+#editButton {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#editButton:hover {
+    background-color: #0056b3;
+}
+
+/* Định dạng bảng */
+.product-table {
+    width: 100%;
+    border-collapse: collapse; /* Kết hợp viền các ô lại với nhau */
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Định dạng các dòng trong bảng */
+.product-table tr {
+    border-bottom: 1px solid #ccc; /* Viền dưới các dòng */
+}
+
+/* Định dạng các ô trong bảng */
+.product-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc; /* Viền giữa các ô */
+}
+
+/* Định dạng cho các tiêu đề cột */
+.product-table td b {
+    font-weight: bold;
+}
+
+/* Đổi màu nền cho các hàng lẻ */
+.product-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Đổi màu nền cho các hàng chẵn */
+.product-table tr:nth-child(even) {
+    background-color: #fff;
+}
+
+/* Đổi màu khi hover vào hàng */
+.product-table tr:hover {
+    background-color: #f1f1f1;
+}

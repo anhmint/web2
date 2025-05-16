@@ -1,0 +1,132 @@
+/* Định dạng chung */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Tiêu đề */
+main h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+main h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* Định dạng văn bản */
+main p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+main p strong {
+  font-weight: bold;
+  color: #222;
+}
+
+/* Định dạng textarea */
+textarea[readonly] {
+  width: 100%;
+  border: 1px solid #ddd;
+  background-color: #f4f4f4;
+  color: #333;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 4px;
+  resize: none;
+}
+
+/* Định dạng trạng thái đơn hàng */
+.status.success {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status.pending {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.status.failed {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Định dạng bảng */
+/* Định dạng bảng hóa đơn */
+.invoice-details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.invoice-details table th, 
+.invoice-details table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center; /* Căn giữa nội dung */
+}
+
+.invoice-details table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+}
+
+.invoice-details table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.invoice-details table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.invoice-details table tfoot td {
+  font-weight: bold;
+  background-color: #f4f4f4;
+}
+
+
+/* Định dạng tổng tiền */
+.invoice-details table tfoot td:last-child {
+  color: #222;
+  font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main {
+    padding: 15px;
+  }
+
+  invoice-details table th, 
+  invoice-details table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

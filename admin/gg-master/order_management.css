@@ -1,0 +1,143 @@
+main {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .order-management h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  .filters {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .filters label {
+    font-weight: bold;
+  }
+  
+  .filters input,
+  .filters select {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: visible; /* Đảm bảo nội dung không bị cắt */
+  }
+  
+  .order-table thead {
+    position: relative; /* Đặt về mặc định */
+    text-align: center; /* Căn giữa nội dung tiêu đề */
+  }
+  
+  
+  .order-table th, .order-table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .order-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .order-table a.view-details {
+    color: #007bff;
+    text-decoration: none;
+    display: inline-block; /* Đảm bảo liên kết không bị ảnh hưởng */
+    text-align: left; /* Căn trái liên kết */
+  }
+  .order-table a.view-details:hover {
+    text-decoration: underline;
+  }
+  
+
+  .change-status {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .change-status select {
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100px; /* Đặt chiều rộng cụ thể */
+  }
+  
+  .change-status button {
+    padding: 5px 10px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 90px; /* Giảm chiều rộng của nút */
+    text-align: center;
+  }
+  
+  .change-status button:hover {
+    background-color: #3700b3;
+  }
+  
+  /* Thay đổi kiểu cho dropdown */
+.status-dropdown {
+  font-family: inherit; /* Kế thừa font của bảng */
+  font-size: inherit; /* Đồng bộ kích thước chữ */
+  color: inherit; /* Sử dụng màu chữ mặc định của cột */
+  border: none; /* Loại bỏ đường viền nếu không cần */
+  background-color: transparent; /* Làm nền dropdown trong suốt */
+  padding: 5px; /* Khoảng cách nội dung */
+  width: 70%; /* Căn chỉnh kích thước theo ô */
+  cursor: pointer; /* Thay đổi con trỏ chuột khi rê vào dropdown */
+}
+
+/* Tùy chỉnh các tùy chọn trong dropdown */
+.status-dropdown option {
+  font-family: inherit; /* Kế thừa font */
+  font-size: inherit; /* Kế thừa kích thước */
+  color: #000; /* Đặt màu chữ của các tùy chọn */
+  background-color: #fff; /* Đặt nền trắng cho tùy chọn */
+}
+
+/* Thêm hiệu ứng hover cho dropdown */
+.status-dropdown:hover {
+  border: 1px solid #ccc; /* Hiệu ứng khi rê chuột */
+}
+
+/* Tùy chỉnh nút "Lọc" */
+.filter-button {
+  background-color: #007bff; /* Màu nền xanh dương */
+  color: #ffffff; /* Màu chữ trắng */
+  border: none; /* Xóa viền */
+  padding: 10px 20px; /* Khoảng cách nội dung */
+  font-size: 16px; /* Kích thước chữ */
+  border-radius: 10px; /* Bo góc (10px) */
+  cursor: pointer; /* Con trỏ chỉ tay khi rê chuột */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng hover và nhấn */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+}
+
+/* Hiệu ứng khi rê chuột vào nút */
+.filter-button:hover {
+  background-color: #0056b3; /* Màu nền đậm hơn khi hover */
+  transform: scale(1.05); /* Phóng to nhẹ */
+}
+
+/* Hiệu ứng khi nhấn vào nút */
+.filter-button:active {
+  background-color: #003d80; /* Màu nền đậm hơn khi nhấn */
+  transform: scale(0.95); /* Thu nhỏ nhẹ khi nhấn */
+}
+
+  

@@ -1,0 +1,141 @@
+.edit-product-form {
+    border: 2px solid #090a0a;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+}
+
+.edit-product-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"], 
+.form-group select, 
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.radio-group label {
+    margin-right: 20px;
+}
+
+.image-preview {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.image-preview img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 10px;
+}
+
+.image-preview .remove-image {
+    background: none;
+    border: none;
+    color: #ff0000;
+    font-size: 20px;
+    cursor: pointer;
+}
+.save-button {
+    background: linear-gradient(135deg, #6b46c1, #c4b5fd);
+    color: white; /* Màu chữ */
+    border: none; /* Xóa viền */
+    padding: 10px 20px; /* Khoảng cách bên trong */
+    font-size: 16px; /* Cỡ chữ */
+    font-weight: bold; /* Đậm chữ */
+    border-radius: 5px; /* Bo góc */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu */
+}
+
+.save-button:hover {
+    background: linear-gradient(135deg, #6b46c1, #c4b5fd); /* Màu nền khi hover */
+}
+
+.save-button:active {
+    background: linear-gradient(135deg, #6b46c1, #c4b5fd); /* Màu nền khi nhấn */
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.radio-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+}
+.radio-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .radio-group input[type="radio"] {
+    display: none;
+  }
+  
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    user-select: none;
+  }
+  
+  .radio-group label:hover {
+    border-color: #007BFF;
+  }
+  
+  .radio-group input[type="radio"]:checked + label {
+    border-color: #007BFF;
+    background-color: #e8f0fe;
+  }
+  
+  .radio-group .circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    margin-right: 8px;
+    position: relative;
+  }
+  
+  .radio-group input[type="radio"]:checked + label .circle::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #007BFF;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+  }
+  
+  
